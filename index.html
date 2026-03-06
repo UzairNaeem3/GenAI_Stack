@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Put your HTML text here<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -30,419 +30,85 @@
     --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
     --radius: 10px;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .page {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 60px 32px 120px;
-  }
-
-  /* ── HEADER ── */
-  .header {
-    margin-bottom: 56px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .header-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--accent-warm);
-    margin-bottom: 16px;
-  }
-
-  .header h1 {
-    font-family: 'Instrument Serif', serif;
-    font-size: 48px;
-    font-weight: 400;
-    line-height: 1.15;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-
-  .header h1 em {
-    font-style: italic;
-    color: var(--accent-warm);
-  }
-
-  .header-subtitle {
-    font-size: 17px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 600px;
-  }
-
-  /* ── PASS SECTION ── */
-  .pass-section {
-    margin-bottom: 56px;
-  }
-
-  .pass-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 8px;
-  }
-
-  .pass-number {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 6px;
-    letter-spacing: 0.5px;
-  }
-
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 780px; margin: 0 auto; padding: 60px 32px 120px; }
+  .header { margin-bottom: 56px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+  .header-label { font-size: 11px; font-weight: 600; letter-spacing: 1.8px; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 16px; }
+  .header h1 { font-family: 'Instrument Serif', serif; font-size: 48px; font-weight: 400; line-height: 1.15; color: var(--text); margin-bottom: 16px; }
+  .header h1 em { font-style: italic; color: var(--accent-warm); }
+  .header-subtitle { font-size: 17px; color: var(--text-secondary); line-height: 1.7; max-width: 600px; }
+  .pass-section { margin-bottom: 56px; }
+  .pass-header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+  .pass-number { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; }
   .pass-1 .pass-number { background: var(--accent-blue-light); color: var(--accent-blue); }
   .pass-2 .pass-number { background: var(--accent-green-light); color: var(--accent-green); }
   .pass-3 .pass-number { background: var(--accent-purple-light); color: var(--accent-purple); }
-
-  .pass-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 30px;
-    font-weight: 400;
-  }
-
-  .pass-goal {
-    font-size: 15px;
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-    padding-left: 2px;
-  }
-
-  /* ── TOGGLE BLOCKS ── */
-  .toggle-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    margin-bottom: 12px;
-    overflow: hidden;
-    transition: box-shadow 0.2s ease;
-  }
-
-  .toggle-block:hover {
-    box-shadow: var(--shadow-sm);
-  }
-
-  .toggle-trigger {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 18px 22px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    font-family: inherit;
-  }
-
-  .toggle-arrow {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 3px;
-    transition: transform 0.2s ease;
-    color: var(--text-muted);
-  }
-
-  .toggle-block.open .toggle-arrow {
-    transform: rotate(90deg);
-  }
-
-  .toggle-heading {
-    flex: 1;
-  }
-
-  .toggle-heading h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.4;
-    margin-bottom: 2px;
-  }
-
-  .toggle-heading .motivation {
-    font-size: 13.5px;
-    color: var(--text-secondary);
-    line-height: 1.55;
-    font-weight: 400;
-  }
-
-  .toggle-content {
-    display: none;
-    padding: 0 22px 22px 54px;
-  }
-
-  .toggle-block.open .toggle-content {
-    display: block;
-  }
-
-  /* ── CONTENT INSIDE TOGGLES ── */
-  .concept-group {
-    margin-bottom: 20px;
-  }
-
-  .concept-group:last-child {
-    margin-bottom: 0;
-  }
-
-  .concept-group-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--border-light);
-  }
-
-  .label-blue { color: var(--accent-blue); }
-  .label-green { color: var(--accent-green); }
-  .label-warm { color: var(--accent-warm); }
-  .label-purple { color: var(--accent-purple); }
-  .label-rose { color: var(--accent-rose); }
-
-  .concept-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 6px;
-  }
-
-  .concept-tag {
-    font-size: 13px;
-    font-weight: 500;
-    padding: 5px 12px;
-    border-radius: 6px;
-    background: var(--tag-bg);
-    color: var(--text);
-    line-height: 1.4;
-  }
-
-  .concept-tag.highlight {
-    background: var(--accent-warm-light);
-    color: var(--accent-warm);
-    font-weight: 600;
-  }
-
+  .pass-title { font-family: 'Instrument Serif', serif; font-size: 30px; font-weight: 400; }
+  .pass-goal { font-size: 15px; color: var(--text-secondary); margin-bottom: 32px; padding-left: 2px; }
+  .toggle-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; transition: box-shadow 0.2s ease; }
+  .toggle-block:hover { box-shadow: var(--shadow-sm); }
+  .toggle-trigger { width: 100%; display: flex; align-items: flex-start; gap: 12px; padding: 18px 22px; background: none; border: none; cursor: pointer; text-align: left; font-family: inherit; }
+  .toggle-arrow { flex-shrink: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; margin-top: 3px; transition: transform 0.2s ease; color: var(--text-muted); }
+  .toggle-block.open .toggle-arrow { transform: rotate(90deg); }
+  .toggle-heading { flex: 1; }
+  .toggle-heading h3 { font-size: 16px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 2px; }
+  .toggle-heading .motivation { font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; font-weight: 400; }
+  .toggle-content { display: none; padding: 0 22px 22px 54px; }
+  .toggle-block.open .toggle-content { display: block; }
+  .concept-group { margin-bottom: 20px; }
+  .concept-group:last-child { margin-bottom: 0; }
+  .concept-group-label { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border-light); }
+  .label-blue { color: var(--accent-blue); } .label-green { color: var(--accent-green); } .label-warm { color: var(--accent-warm); } .label-purple { color: var(--accent-purple); } .label-rose { color: var(--accent-rose); }
+  .concept-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+  .concept-tag { font-size: 13px; font-weight: 500; padding: 5px 12px; border-radius: 6px; background: var(--tag-bg); color: var(--text); line-height: 1.4; }
+  .concept-tag.highlight { background: var(--accent-warm-light); color: var(--accent-warm); font-weight: 600; }
   .concept-tag.blue { background: var(--accent-blue-light); color: var(--accent-blue); }
   .concept-tag.green { background: var(--accent-green-light); color: var(--accent-green); }
   .concept-tag.purple { background: var(--accent-purple-light); color: var(--accent-purple); }
   .concept-tag.rose { background: var(--accent-rose-light); color: var(--accent-rose); }
-
-  .note-block {
-    font-size: 13.5px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    padding: 12px 16px;
-    background: var(--code-bg);
-    border-radius: 8px;
-    margin-top: 12px;
-    border-left: 3px solid var(--border);
-  }
-
-  .note-block strong {
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  .pipeline-flow {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin: 12px 0;
-  }
-
-  .pipeline-step {
-    font-size: 12.5px;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 20px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text);
-  }
-
-  .pipeline-arrow {
-    font-size: 14px;
-    color: var(--text-muted);
-  }
-
-  /* ── SUB-TOGGLE ── */
-  .sub-toggle {
-    margin-bottom: 8px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .sub-toggle-trigger {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    background: var(--code-bg);
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    font-family: inherit;
-    border-radius: 8px;
-    transition: background 0.15s ease;
-  }
-
-  .sub-toggle-trigger:hover {
-    background: var(--border-light);
-  }
-
-  .sub-toggle-trigger .toggle-arrow {
-    width: 16px;
-    height: 16px;
-    margin-top: 0;
-  }
-
-  .sub-toggle-trigger span {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-  }
-
-  .sub-toggle-content {
-    display: none;
-    padding: 10px 14px 14px 38px;
-  }
-
-  .sub-toggle.open .sub-toggle-content {
-    display: block;
-  }
-
-  .sub-toggle.open .toggle-arrow {
-    transform: rotate(90deg);
-  }
-
-  /* ── PROJECT CARD ── */
-  .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px 22px;
-    margin-bottom: 12px;
-  }
-
-  .project-card h4 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .project-card h4 .num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: var(--accent-green-light);
-    color: var(--accent-green);
-  }
-
-  .project-card p {
-    font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-
-  .project-card .concept-list {
-    margin-top: 8px;
-  }
-
-  /* ── LATEST SECTION ── */
-  .latest-section {
-    margin-top: 56px;
-    padding-top: 40px;
-    border-top: 1px solid var(--border);
-  }
-
-  .latest-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .latest-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-  }
-
-  .latest-card h4 {
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-
-  .latest-card p {
-    font-size: 13.5px;
-    color: var(--text-secondary);
-    line-height: 1.55;
-  }
-
-  .latest-card .year-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    padding: 2px 7px;
-    border-radius: 4px;
-    background: var(--accent-rose-light);
-    color: var(--accent-rose);
-    margin-bottom: 10px;
-    display: inline-block;
-  }
-
-  /* ── RESPONSIVE ── */
+  .note-block { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; padding: 12px 16px; background: var(--code-bg); border-radius: 8px; margin-top: 12px; border-left: 3px solid var(--border); }
+  .note-block strong { color: var(--text); font-weight: 600; }
+  .pipeline-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin: 12px 0; }
+  .pipeline-step { font-size: 12.5px; font-weight: 500; padding: 6px 14px; border-radius: 20px; background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+  .pipeline-arrow { font-size: 14px; color: var(--text-muted); }
+  .sub-toggle { margin-bottom: 8px; border-radius: 8px; overflow: hidden; }
+  .sub-toggle-trigger { width: 100%; display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--code-bg); border: none; cursor: pointer; text-align: left; font-family: inherit; border-radius: 8px; transition: background 0.15s ease; }
+  .sub-toggle-trigger:hover { background: var(--border-light); }
+  .sub-toggle-trigger .toggle-arrow { width: 16px; height: 16px; margin-top: 0; }
+  .sub-toggle-trigger span { font-size: 14px; font-weight: 500; color: var(--text); }
+  .sub-toggle-content { display: none; padding: 10px 14px 14px 38px; }
+  .sub-toggle.open .sub-toggle-content { display: block; }
+  .sub-toggle.open .toggle-arrow { transform: rotate(90deg); }
+  .diagram-wrapper { margin: 16px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: #FDFCFA; }
+  .diagram-wrapper svg { width: 100%; height: auto; display: block; }
+  .diagram-label { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 10px 16px 6px; background: #FDFCFA; }
+  .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; margin-bottom: 12px; }
+  .project-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .project-card h4 .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; background: var(--accent-green-light); color: var(--accent-green); }
+  .project-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px; }
+  .project-card .concept-list { margin-top: 8px; }
+  .latest-section { margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
+  .latest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .latest-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .latest-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .latest-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+  .latest-card .year-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; padding: 2px 7px; border-radius: 4px; background: var(--accent-rose-light); color: var(--accent-rose); margin-bottom: 10px; display: inline-block; }
   @media (max-width: 600px) {
-    .page { padding: 36px 18px 80px; }
-    .header h1 { font-size: 34px; }
-    .pass-title { font-size: 24px; }
-    .latest-grid { grid-template-columns: 1fr; }
-    .pipeline-flow { gap: 3px; }
-    .pipeline-step { font-size: 11px; padding: 4px 10px; }
+    .page { padding: 36px 18px 80px; } .header h1 { font-size: 34px; } .pass-title { font-size: 24px; } .latest-grid { grid-template-columns: 1fr; }
+    .toggle-content { padding: 0 16px 18px 36px; }
   }
 </style>
 </head>
 <body>
 <div class="page">
-
-  <!-- HEADER -->
   <div class="header">
     <div class="header-label">Learning Map</div>
     <h1>The Applied <em>GenAI</em> Stack</h1>
     <p class="header-subtitle">A structured 3-pass learning path from architecture thinking → working prototypes → production-depth knowledge.</p>
   </div>
 
-  <!-- ═══════════════════════════════════════ -->
   <!-- PASS 1 -->
-  <!-- ═══════════════════════════════════════ -->
   <div class="pass-section pass-1">
     <div class="pass-header">
       <span class="pass-number">PASS 1</span>
@@ -460,68 +126,101 @@
         </div>
       </button>
       <div class="toggle-content">
-
-        <div class="concept-group">
-          <div class="concept-group-label label-blue">Core Pipeline</div>
-          <div class="pipeline-flow">
-            <span class="pipeline-step">Document Ingestion</span>
-            <span class="pipeline-arrow">→</span>
-            <span class="pipeline-step">Chunking</span>
-            <span class="pipeline-arrow">→</span>
-            <span class="pipeline-step">Embedding</span>
-            <span class="pipeline-arrow">→</span>
-            <span class="pipeline-step">Vector Store</span>
-            <span class="pipeline-arrow">→</span>
-            <span class="pipeline-step">Retrieval</span>
-            <span class="pipeline-arrow">→</span>
-            <span class="pipeline-step">Context Augmentation</span>
-            <span class="pipeline-arrow">→</span>
-            <span class="pipeline-step">Generation</span>
-          </div>
+        <div class="diagram-wrapper">
+          <div class="diagram-label">Core RAG Pipeline</div>
+          <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3B6B8A"/></marker></defs>
+            <rect width="700" height="200" fill="#FDFCFA"/>
+            <text x="22" y="32" font-family="JetBrains Mono, monospace" font-size="9" fill="#9B9B9B" letter-spacing="1">INDEXING PHASE (offline)</text>
+            <rect x="20" y="48" width="82" height="52" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="61" y="71" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#3B6B8A">Documents</text><text x="61" y="84" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#6B6B6B">PDF, Web, DB</text>
+            <line x1="102" y1="74" x2="122" y2="74" stroke="#3B6B8A" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="124" y="48" width="72" height="52" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="160" y="71" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#3B6B8A">Chunking</text><text x="160" y="84" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#6B6B6B">Split text</text>
+            <line x1="196" y1="74" x2="216" y2="74" stroke="#3B6B8A" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="218" y="48" width="78" height="52" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="257" y="71" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#3B6B8A">Embedding</text><text x="257" y="84" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#6B6B6B">Text → Vector</text>
+            <line x1="296" y1="74" x2="316" y2="74" stroke="#3B6B8A" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="318" y="42" width="90" height="64" rx="10" fill="#3B6B8A"/><text x="363" y="68" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#fff">Vector DB</text><text x="363" y="82" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#C5DBE9">Store & Index</text><text x="363" y="95" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#C5DBE9">Embeddings</text>
+            <text x="22" y="140" font-family="JetBrains Mono, monospace" font-size="9" fill="#9B9B9B" letter-spacing="1">QUERY PHASE (runtime)</text>
+            <rect x="20" y="152" width="72" height="38" rx="8" fill="#FDF6F0" stroke="#C4703F" stroke-width="1.2"/><text x="56" y="175" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#C4703F">User Query</text>
+            <line x1="92" y1="171" x2="112" y2="171" stroke="#C4703F" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="114" y="152" width="82" height="38" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="155" y="170" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#3B6B8A">Embed</text><text x="155" y="182" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#6B6B6B">Query → Vec</text>
+            <line x1="196" y1="171" x2="216" y2="171" stroke="#3B6B8A" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="218" y="152" width="78" height="38" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="257" y="175" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#3B6B8A">Retrieve</text>
+            <line x1="280" y1="152" x2="350" y2="106" stroke="#3B6B8A" stroke-width="1" stroke-dasharray="4,3"/>
+            <line x1="296" y1="171" x2="386" y2="171" stroke="#3B6B8A" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="388" y="148" width="100" height="44" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="438" y="168" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#3B6B8A">Context</text><text x="438" y="181" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#6B6B6B">Query + Chunks</text>
+            <line x1="488" y1="171" x2="508" y2="171" stroke="#3B6B8A" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="510" y="142" width="88" height="56" rx="10" fill="#7B5EA7"/><text x="554" y="166" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff">LLM</text><text x="554" y="180" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#D4C5E9">Generate answer</text>
+            <line x1="598" y1="171" x2="618" y2="171" stroke="#7B5EA7" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="620" y="152" width="66" height="38" rx="8" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1.2"/><text x="653" y="175" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#4A7C59">Answer</text>
+          </svg>
         </div>
 
-        <!-- Sub-toggle: RAG Types -->
         <div class="sub-toggle">
           <button class="sub-toggle-trigger" onclick="toggleSub(this)">
             <span class="toggle-arrow">▶</span>
-            <span>RAG Architectures - by complexity</span>
+            <span>RAG Architectures — by complexity</span>
           </button>
           <div class="sub-toggle-content">
-            <div class="concept-group">
-              <div class="concept-group-label label-blue">Basic</div>
-              <div class="concept-list">
-                <span class="concept-tag">Naive RAG</span>
-                <span class="concept-tag">Conversational RAG</span>
-                <span class="concept-tag">Hybrid RAG (sparse + dense)</span>
-                <span class="concept-tag">Multi-hop RAG</span>
-              </div>
+            <div class="concept-group"><div class="concept-group-label label-blue">Basic</div><div class="concept-list"><span class="concept-tag">Naive RAG</span><span class="concept-tag">Conversational RAG</span><span class="concept-tag">Hybrid RAG (sparse + dense)</span><span class="concept-tag">Multi-hop RAG</span></div></div>
+
+            <div class="diagram-wrapper">
+              <div class="diagram-label">Naive RAG vs Corrective RAG (CRAG)</div>
+              <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg">
+                <rect width="700" height="260" fill="#FDFCFA"/>
+                <text x="175" y="24" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#3B6B8A">Naive RAG — Single pass, no validation</text>
+                <rect x="20" y="38" width="70" height="36" rx="6" fill="#FDF6F0" stroke="#C4703F" stroke-width="1"/><text x="55" y="60" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#C4703F">Query</text>
+                <line x1="90" y1="56" x2="110" y2="56" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+                <rect x="112" y="38" width="70" height="36" rx="6" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1"/><text x="147" y="60" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#3B6B8A">Retrieve</text>
+                <line x1="182" y1="56" x2="202" y2="56" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+                <rect x="204" y="38" width="70" height="36" rx="6" fill="#F5F0FA" stroke="#7B5EA7" stroke-width="1"/><text x="239" y="60" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#7B5EA7">Generate</text>
+                <line x1="274" y1="56" x2="294" y2="56" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+                <rect x="296" y="38" width="66" height="36" rx="6" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1"/><text x="329" y="60" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#4A7C59">Answer</text>
+                <line x1="20" y1="96" x2="680" y2="96" stroke="#E8E8E4" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="350" y="118" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#A35D6E">Corrective RAG (CRAG) — Validates before generating</text>
+                <rect x="20" y="132" width="70" height="36" rx="6" fill="#FDF6F0" stroke="#C4703F" stroke-width="1"/><text x="55" y="154" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#C4703F">Query</text>
+                <line x1="90" y1="150" x2="110" y2="150" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+                <rect x="112" y="132" width="70" height="36" rx="6" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1"/><text x="147" y="154" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#3B6B8A">Retrieve</text>
+                <line x1="182" y1="150" x2="202" y2="150" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+                <rect x="204" y="128" width="90" height="44" rx="6" fill="#FAF0F2" stroke="#A35D6E" stroke-width="1.5"/><text x="249" y="148" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="700" fill="#A35D6E">Grade Docs</text><text x="249" y="162" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#A35D6E">Relevant?</text>
+                <line x1="294" y1="140" x2="354" y2="140" stroke="#4A7C59" stroke-width="1" marker-end="url(#arr)"/><text x="324" y="135" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#4A7C59">YES</text>
+                <line x1="249" y1="172" x2="249" y2="208" stroke="#A35D6E" stroke-width="1" marker-end="url(#arr)"/><text x="262" y="195" font-family="JetBrains Mono" font-size="8" fill="#A35D6E">NO</text>
+                <rect x="196" y="210" width="106" height="36" rx="6" fill="#FAF0F2" stroke="#A35D6E" stroke-width="1"/><text x="249" y="232" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="600" fill="#A35D6E">Web Search Fallback</text>
+                <line x1="302" y1="228" x2="354" y2="168" stroke="#A35D6E" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arr)"/>
+                <rect x="356" y="128" width="76" height="44" rx="6" fill="#F5F0FA" stroke="#7B5EA7" stroke-width="1"/><text x="394" y="154" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#7B5EA7">Generate</text>
+                <line x1="432" y1="150" x2="452" y2="150" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+                <rect x="454" y="132" width="66" height="36" rx="6" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1"/><text x="487" y="154" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#4A7C59">Answer</text>
+              </svg>
             </div>
-            <div class="concept-group">
-              <div class="concept-group-label label-warm">Intermediate</div>
-              <div class="concept-list">
-                <span class="concept-tag">Query Rewrite RAG</span>
-                <span class="concept-tag">HyDE (Hypothetical Document Embedding)</span>
-                <span class="concept-tag">Multi-source RAG</span>
-                <span class="concept-tag">Graph RAG</span>
-              </div>
+
+            <div class="concept-group"><div class="concept-group-label label-warm">Intermediate</div><div class="concept-list"><span class="concept-tag">Query Rewrite RAG</span><span class="concept-tag">HyDE (Hypothetical Document Embedding)</span><span class="concept-tag">Multi-source RAG</span><span class="concept-tag">Graph RAG</span></div></div>
+            <div class="concept-group"><div class="concept-group-label label-rose">Advanced</div><div class="concept-list"><span class="concept-tag highlight">Corrective RAG (CRAG)</span><span class="concept-tag highlight">Self-RAG</span><span class="concept-tag highlight">Adaptive RAG</span><span class="concept-tag highlight">Agentic RAG</span></div></div>
+
+            <div class="diagram-wrapper">
+              <div class="diagram-label">Self-RAG — Model decides when to retrieve & self-grades output</div>
+              <svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg">
+                <rect width="700" height="170" fill="#FDFCFA"/>
+                <rect x="20" y="30" width="76" height="40" rx="6" fill="#FDF6F0" stroke="#C4703F" stroke-width="1"/><text x="58" y="54" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#C4703F">Query</text>
+                <line x1="96" y1="50" x2="118" y2="50" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+                <rect x="120" y="24" width="100" height="52" rx="8" fill="#F5F0FA" stroke="#7B5EA7" stroke-width="1.5"/><text x="170" y="46" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="700" fill="#7B5EA7">LLM Decides</text><text x="170" y="60" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#7B5EA7">Need retrieval?</text>
+                <line x1="170" y1="76" x2="170" y2="108" stroke="#3B6B8A" stroke-width="1" marker-end="url(#arr)"/><text x="180" y="95" font-family="JetBrains Mono" font-size="8" fill="#3B6B8A">YES</text>
+                <rect x="130" y="110" width="80" height="34" rx="6" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1"/><text x="170" y="131" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="600" fill="#3B6B8A">Retrieve</text>
+                <line x1="210" y1="127" x2="262" y2="127" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+                <line x1="220" y1="50" x2="264" y2="50" stroke="#C4703F" stroke-width="1" marker-end="url(#arr)"/><text x="242" y="44" font-family="JetBrains Mono" font-size="8" fill="#C4703F">NO</text>
+                <rect x="266" y="30" width="80" height="110" rx="8" fill="#F5F0FA" stroke="#7B5EA7" stroke-width="1"/><text x="306" y="72" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#7B5EA7">Generate</text><text x="306" y="86" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#7B5EA7">+ self-score</text>
+                <line x1="346" y1="75" x2="378" y2="75" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+                <rect x="380" y="50" width="100" height="50" rx="8" fill="#FAF0F2" stroke="#A35D6E" stroke-width="1.5"/><text x="430" y="72" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="700" fill="#A35D6E">Self-Grade</text><text x="430" y="86" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#A35D6E">Faithful? Relevant?</text>
+                <path d="M 430 100 L 430 148 L 170 148 L 170 144" stroke="#A35D6E" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#arr)"/><text x="300" y="160" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#A35D6E">RETRY if low score</text>
+                <line x1="480" y1="75" x2="510" y2="75" stroke="#4A7C59" stroke-width="1" marker-end="url(#arr)"/><text x="498" y="68" font-family="JetBrains Mono" font-size="8" fill="#4A7C59">PASS</text>
+                <rect x="512" y="56" width="66" height="38" rx="6" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1"/><text x="545" y="79" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#4A7C59">Answer</text>
+              </svg>
             </div>
-            <div class="concept-group">
-              <div class="concept-group-label label-rose">Advanced</div>
-              <div class="concept-list">
-                <span class="concept-tag highlight">Corrective RAG (CRAG)</span>
-                <span class="concept-tag highlight">Self-RAG</span>
-                <span class="concept-tag highlight">Adaptive RAG</span>
-                <span class="concept-tag highlight">Agentic RAG</span>
-              </div>
-            </div>
-            <div class="note-block">Advanced architectures add <strong>validation loops</strong>, <strong>multiple retrieval steps</strong>, or <strong>autonomous agent control</strong> to improve reasoning and reduce hallucinations.</div>
+            <div class="note-block">Advanced architectures add <strong>validation loops</strong>, <strong>multiple retrieval steps</strong>, or <strong>autonomous agent control</strong> to reduce hallucinations.</div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- Vector Databases -->
+    <!-- Vector DBs -->
     <div class="toggle-block">
       <button class="toggle-trigger" onclick="toggleBlock(this)">
         <span class="toggle-arrow">▶</span>
@@ -531,29 +230,29 @@
         </div>
       </button>
       <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-blue">Key Concepts</div>
-          <div class="concept-list">
-            <span class="concept-tag">Embeddings</span>
-            <span class="concept-tag">Vector Similarity</span>
-            <span class="concept-tag">Approximate Nearest Neighbor (ANN)</span>
-            <span class="concept-tag">Index Structures</span>
-            <span class="concept-tag">Metadata Filtering</span>
-          </div>
+        <div class="diagram-wrapper">
+          <div class="diagram-label">How vector search works</div>
+          <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="180" fill="#FDFCFA"/>
+            <text x="80" y="20" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#3B6B8A">Text → Embedding</text>
+            <rect x="22" y="32" width="116" height="28" rx="6" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1"/><text x="80" y="51" text-anchor="middle" font-family="JetBrains Mono" font-size="8.5" fill="#3B6B8A">"How to cook pasta"</text>
+            <line x1="80" y1="60" x2="80" y2="74" stroke="#3B6B8A" stroke-width="1" marker-end="url(#arr)"/>
+            <rect x="22" y="76" width="116" height="24" rx="6" fill="#3B6B8A"/><text x="80" y="93" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#fff">[0.23, 0.87, -0.14...]</text>
+            <text x="350" y="20" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#7B5EA7">Vector Space — Similar = Close</text>
+            <rect x="200" y="32" width="300" height="138" rx="12" fill="#F9F8FC" stroke="#D4C5E9" stroke-width="1"/>
+            <circle cx="260" cy="72" r="4.5" fill="#3B6B8A" opacity="0.25"/><circle cx="290" cy="100" r="4.5" fill="#3B6B8A" opacity="0.25"/><circle cx="320" cy="62" r="4.5" fill="#3B6B8A" opacity="0.25"/><circle cx="380" cy="120" r="4.5" fill="#3B6B8A" opacity="0.25"/><circle cx="420" cy="82" r="4.5" fill="#3B6B8A" opacity="0.25"/><circle cx="350" cy="140" r="4.5" fill="#3B6B8A" opacity="0.25"/><circle cx="240" cy="130" r="4.5" fill="#3B6B8A" opacity="0.25"/><circle cx="450" cy="56" r="4.5" fill="#3B6B8A" opacity="0.25"/><circle cx="470" cy="130" r="4.5" fill="#3B6B8A" opacity="0.25"/>
+            <circle cx="340" cy="92" r="7" fill="#C4703F"/><text x="340" y="84" text-anchor="middle" font-family="DM Sans" font-size="7" font-weight="700" fill="#C4703F">query</text>
+            <circle cx="320" cy="62" r="4.5" fill="#4A7C59"/><circle cx="290" cy="100" r="4.5" fill="#4A7C59"/><circle cx="380" cy="120" r="4.5" fill="#4A7C59"/>
+            <circle cx="340" cy="92" r="50" fill="none" stroke="#C4703F" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+            <text x="590" y="20" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#4A7C59">Top-K Results</text>
+            <rect x="540" y="36" width="140" height="24" rx="5" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1"/><text x="610" y="53" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#4A7C59">1. Italian pasta recipe</text>
+            <rect x="540" y="66" width="140" height="24" rx="5" fill="#F0F7F2" stroke="#4A7C59" stroke-width="0.8"/><text x="610" y="83" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#4A7C59">2. Boiling techniques</text>
+            <rect x="540" y="96" width="140" height="24" rx="5" fill="#F0F7F2" stroke="#4A7C59" stroke-width="0.8"/><text x="610" y="113" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#4A7C59">3. Pasta sauce guide</text>
+          </svg>
         </div>
-        <div class="concept-group">
-          <div class="concept-group-label label-green">Important Vector DBs</div>
-          <div class="concept-list">
-            <span class="concept-tag blue">Pinecone</span>
-            <span class="concept-tag blue">Weaviate</span>
-            <span class="concept-tag blue">Qdrant</span>
-            <span class="concept-tag blue">Chroma</span>
-            <span class="concept-tag blue">FAISS</span>
-            <span class="concept-tag blue">Milvus</span>
-            <span class="concept-tag blue">pgvector</span>
-          </div>
-        </div>
-        <div class="note-block"><strong>Key tradeoff to understand:</strong> Managed (Pinecone) vs self-hosted (Qdrant, Milvus). For learning, start with Chroma (simple, local). For production, understand HNSW vs IVF indexing.</div>
+        <div class="concept-group"><div class="concept-group-label label-blue">Key Concepts</div><div class="concept-list"><span class="concept-tag">Embeddings</span><span class="concept-tag">Vector Similarity</span><span class="concept-tag">Approximate Nearest Neighbor (ANN)</span><span class="concept-tag">Index Structures</span><span class="concept-tag">Metadata Filtering</span></div></div>
+        <div class="concept-group"><div class="concept-group-label label-green">Important Vector DBs</div><div class="concept-list"><span class="concept-tag blue">Pinecone</span><span class="concept-tag blue">Weaviate</span><span class="concept-tag blue">Qdrant</span><span class="concept-tag blue">Chroma</span><span class="concept-tag blue">FAISS</span><span class="concept-tag blue">Milvus</span><span class="concept-tag blue">pgvector</span></div></div>
+        <div class="note-block"><strong>Key tradeoff:</strong> Managed (Pinecone) vs self-hosted (Qdrant, Milvus). Start with Chroma for learning.</div>
       </div>
     </div>
 
@@ -567,58 +266,65 @@
         </div>
       </button>
       <div class="toggle-content">
-
-        <div class="concept-group">
-          <div class="concept-group-label label-blue">Core Formula</div>
-          <div class="pipeline-flow">
-            <span class="pipeline-step">LLM (brain)</span>
-            <span class="pipeline-arrow">+</span>
-            <span class="pipeline-step">Tools (hands)</span>
-            <span class="pipeline-arrow">+</span>
-            <span class="pipeline-step">Planning (strategy)</span>
-            <span class="pipeline-arrow">+</span>
-            <span class="pipeline-step">Memory (context)</span>
-            <span class="pipeline-arrow">=</span>
-            <span class="pipeline-step" style="border-color:var(--accent-warm);color:var(--accent-warm);font-weight:600">Agent</span>
-          </div>
+        <div class="diagram-wrapper">
+          <div class="diagram-label">ReAct Agent — Thought → Action → Observation loop</div>
+          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="220" fill="#FDFCFA"/>
+            <rect x="20" y="80" width="80" height="44" rx="8" fill="#FDF6F0" stroke="#C4703F" stroke-width="1.2"/><text x="60" y="102" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#C4703F">User</text><text x="60" y="114" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#C4703F">Task</text>
+            <line x1="100" y1="102" x2="135" y2="102" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="138" y="55" width="130" height="96" rx="14" fill="#7B5EA7"/><text x="203" y="87" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#fff">LLM Brain</text><text x="203" y="105" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#D4C5E9">Reason about task</text><text x="203" y="119" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#D4C5E9">Pick next action</text><text x="203" y="133" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#D4C5E9">Evaluate progress</text>
+            <rect x="155" y="8" width="96" height="32" rx="16" fill="#F5F0FA" stroke="#7B5EA7" stroke-width="1"/><text x="203" y="28" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#7B5EA7">Thought</text>
+            <line x1="203" y1="40" x2="203" y2="55" stroke="#7B5EA7" stroke-width="1" stroke-dasharray="3,2"/>
+            <line x1="268" y1="85" x2="320" y2="85" stroke="#3B6B8A" stroke-width="1.5" marker-end="url(#arr)"/><text x="294" y="78" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#3B6B8A">ACT</text>
+            <rect x="322" y="25" width="140" height="130" rx="10" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="392" y="47" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#3B6B8A">Tools</text>
+            <rect x="340" y="57" width="104" height="20" rx="4" fill="#fff" stroke="#3B6B8A" stroke-width="0.8"/><text x="392" y="72" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#3B6B8A">Web Search</text>
+            <rect x="340" y="81" width="104" height="20" rx="4" fill="#fff" stroke="#3B6B8A" stroke-width="0.8"/><text x="392" y="96" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#3B6B8A">Code Execution</text>
+            <rect x="340" y="105" width="104" height="20" rx="4" fill="#fff" stroke="#3B6B8A" stroke-width="0.8"/><text x="392" y="120" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#3B6B8A">API Call / DB Query</text>
+            <rect x="340" y="129" width="104" height="20" rx="4" fill="#fff" stroke="#3B6B8A" stroke-width="0.8"/><text x="392" y="144" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#3B6B8A">RAG Retrieval</text>
+            <path d="M 392 155 L 392 195 L 203 195 L 203 151" stroke="#4A7C59" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+            <rect x="260" y="183" width="96" height="24" rx="12" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1"/><text x="308" y="200" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="600" fill="#4A7C59">Observation</text>
+            <text x="540" y="195" font-family="JetBrains Mono" font-size="8.5" fill="#9B9B9B">Repeat until done</text>
+            <rect x="520" y="70" width="100" height="50" rx="10" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1.5"/><text x="570" y="92" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#4A7C59">Final</text><text x="570" y="108" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#4A7C59">Answer</text>
+            <line x1="462" y1="78" x2="520" y2="90" stroke="#4A7C59" stroke-width="1" stroke-dasharray="4,3"/><text x="494" y="72" font-family="JetBrains Mono" font-size="7.5" fill="#4A7C59">done</text>
+          </svg>
         </div>
 
         <div class="sub-toggle">
           <button class="sub-toggle-trigger" onclick="toggleSub(this)">
             <span class="toggle-arrow">▶</span>
-            <span>Agent Architectures - by complexity</span>
+            <span>Agent Architectures — by complexity</span>
           </button>
           <div class="sub-toggle-content">
-            <div class="concept-group">
-              <div class="concept-group-label label-blue">Basic</div>
-              <div class="concept-list">
-                <span class="concept-tag">Tool-calling Agents</span>
-                <span class="concept-tag">ReAct Agents</span>
-                <span class="concept-tag">Planner-Executor Agents</span>
-              </div>
+            <div class="concept-group"><div class="concept-group-label label-blue">Basic</div><div class="concept-list"><span class="concept-tag">Tool-calling Agents</span><span class="concept-tag">ReAct Agents</span><span class="concept-tag">Planner-Executor Agents</span></div></div>
+            <div class="concept-group"><div class="concept-group-label label-warm">Intermediate</div><div class="concept-list"><span class="concept-tag">Multi-Agent Systems</span><span class="concept-tag">Hierarchical Agents</span><span class="concept-tag">Router Agents</span></div></div>
+
+            <div class="diagram-wrapper">
+              <div class="diagram-label">Multi-Agent — Supervisor delegates to specialists</div>
+              <svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg">
+                <rect width="700" height="170" fill="#FDFCFA"/>
+                <rect x="20" y="55" width="72" height="38" rx="8" fill="#FDF6F0" stroke="#C4703F" stroke-width="1"/><text x="56" y="78" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#C4703F">User</text>
+                <line x1="92" y1="74" x2="128" y2="74" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+                <rect x="130" y="40" width="120" height="66" rx="12" fill="#7B5EA7"/><text x="190" y="66" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#fff">Supervisor</text><text x="190" y="82" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#D4C5E9">Route & Coordinate</text><text x="190" y="96" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#D4C5E9">Merge results</text>
+                <line x1="250" y1="53" x2="310" y2="28" stroke="#3B6B8A" stroke-width="1.2" marker-end="url(#arr)"/>
+                <rect x="312" y="8" width="110" height="42" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="367" y="27" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#3B6B8A">Researcher</text><text x="367" y="41" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#6B6B6B">Search + Retrieve</text>
+                <line x1="250" y1="73" x2="310" y2="78" stroke="#3B6B8A" stroke-width="1.2" marker-end="url(#arr)"/>
+                <rect x="312" y="58" width="110" height="42" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="367" y="77" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#3B6B8A">Analyst</text><text x="367" y="91" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#6B6B6B">Code + Compute</text>
+                <line x1="250" y1="93" x2="310" y2="128" stroke="#3B6B8A" stroke-width="1.2" marker-end="url(#arr)"/>
+                <rect x="312" y="110" width="110" height="42" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="367" y="129" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#3B6B8A">Writer</text><text x="367" y="143" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#6B6B6B">Summarize + Draft</text>
+                <line x1="422" y1="29" x2="500" y2="72" stroke="#4A7C59" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="422" y1="79" x2="500" y2="74" stroke="#4A7C59" stroke-width="1" stroke-dasharray="3,3"/>
+                <line x1="422" y1="131" x2="500" y2="78" stroke="#4A7C59" stroke-width="1" stroke-dasharray="3,3"/>
+                <rect x="502" y="54" width="90" height="44" rx="10" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1.5"/><text x="547" y="74" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#4A7C59">Combined</text><text x="547" y="89" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#4A7C59">Answer</text>
+              </svg>
             </div>
-            <div class="concept-group">
-              <div class="concept-group-label label-warm">Intermediate</div>
-              <div class="concept-list">
-                <span class="concept-tag">Multi-Agent Systems</span>
-                <span class="concept-tag">Hierarchical Agents</span>
-                <span class="concept-tag">Router Agents</span>
-              </div>
-            </div>
-            <div class="concept-group">
-              <div class="concept-group-label label-rose">Advanced</div>
-              <div class="concept-list">
-                <span class="concept-tag highlight">Agentic Workflows</span>
-                <span class="concept-tag highlight">Autonomous Agents</span>
-                <span class="concept-tag highlight">Self-reflective Agents</span>
-              </div>
-            </div>
+
+            <div class="concept-group"><div class="concept-group-label label-rose">Advanced</div><div class="concept-list"><span class="concept-tag highlight">Agentic Workflows</span><span class="concept-tag highlight">Autonomous Agents</span><span class="concept-tag highlight">Self-reflective Agents</span></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Memory Systems -->
+    <!-- Memory -->
     <div class="toggle-block">
       <button class="toggle-trigger" onclick="toggleBlock(this)">
         <span class="toggle-arrow">▶</span>
@@ -628,18 +334,23 @@
         </div>
       </button>
       <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Memory Types</div>
-          <div class="concept-list">
-            <span class="concept-tag">Short-term Memory (conversation buffer)</span>
-            <span class="concept-tag">Long-term Memory (persistent store)</span>
-            <span class="concept-tag">Episodic Memory (past events)</span>
-            <span class="concept-tag">Semantic Memory (facts & knowledge)</span>
-            <span class="concept-tag">Vector Memory</span>
-            <span class="concept-tag">Graph Memory</span>
-          </div>
+        <div class="diagram-wrapper">
+          <div class="diagram-label">Memory architecture — Multiple memory types feed into the agent</div>
+          <svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="150" fill="#FDFCFA"/>
+            <rect x="280" y="32" width="130" height="76" rx="14" fill="#7B5EA7"/><text x="345" y="62" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#fff">Agent</text><text x="345" y="80" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#D4C5E9">Reads & writes</text><text x="345" y="94" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#D4C5E9">to all memories</text>
+            <rect x="20" y="12" width="115" height="46" rx="8" fill="#FDF6F0" stroke="#C4703F" stroke-width="1"/><text x="78" y="32" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#C4703F">Short-term</text><text x="78" y="46" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#6B6B6B">Chat buffer</text>
+            <line x1="135" y1="40" x2="280" y2="52" stroke="#C4703F" stroke-width="1" marker-end="url(#arr)"/>
+            <rect x="20" y="74" width="115" height="46" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1"/><text x="78" y="94" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#3B6B8A">Episodic</text><text x="78" y="108" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#6B6B6B">Past events & actions</text>
+            <line x1="135" y1="94" x2="280" y2="82" stroke="#3B6B8A" stroke-width="1" marker-end="url(#arr)"/>
+            <rect x="560" y="12" width="115" height="46" rx="8" fill="#F5F0FA" stroke="#7B5EA7" stroke-width="1"/><text x="618" y="32" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#7B5EA7">Semantic</text><text x="618" y="46" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#6B6B6B">Facts & knowledge</text>
+            <line x1="560" y1="40" x2="410" y2="52" stroke="#7B5EA7" stroke-width="1" marker-end="url(#arr)"/>
+            <rect x="560" y="74" width="115" height="46" rx="8" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1"/><text x="618" y="94" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#4A7C59">Vector Store</text><text x="618" y="108" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#6B6B6B">Embed & retrieve</text>
+            <line x1="560" y1="94" x2="410" y2="82" stroke="#4A7C59" stroke-width="1" marker-end="url(#arr)"/>
+            <text x="345" y="142" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#9B9B9B">Memory retrieval is itself a RAG problem</text>
+          </svg>
         </div>
-        <div class="note-block"><strong>Key insight:</strong> Memory retrieval is itself a RAG problem. The agent embeds past interactions, stores them, and retrieves relevant memories at query time. This is where RAG and agents deeply converge.</div>
+        <div class="concept-group"><div class="concept-group-label label-purple">Memory Types</div><div class="concept-list"><span class="concept-tag">Short-term (conversation buffer)</span><span class="concept-tag">Long-term (persistent store)</span><span class="concept-tag">Episodic (past events)</span><span class="concept-tag">Semantic (facts)</span><span class="concept-tag">Vector Memory</span><span class="concept-tag">Graph Memory</span></div></div>
       </div>
     </div>
 
@@ -653,26 +364,24 @@
         </div>
       </button>
       <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-blue">Concepts</div>
-          <div class="concept-list">
-            <span class="concept-tag">Function Calling</span>
-            <span class="concept-tag">Tool Selection</span>
-            <span class="concept-tag">Structured Output</span>
-            <span class="concept-tag">MCP (Model Context Protocol)</span>
-          </div>
+        <div class="diagram-wrapper">
+          <div class="diagram-label">Function Calling — LLM outputs structured tool calls, system executes</div>
+          <svg viewBox="0 0 700 125" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="125" fill="#FDFCFA"/>
+            <rect x="20" y="34" width="96" height="44" rx="8" fill="#FDF6F0" stroke="#C4703F" stroke-width="1"/><text x="68" y="53" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="600" fill="#C4703F">"What's 15%</text><text x="68" y="66" text-anchor="middle" font-family="DM Sans" font-size="9" font-weight="600" fill="#C4703F">tip on $84?"</text>
+            <line x1="116" y1="56" x2="146" y2="56" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="148" y="28" width="106" height="56" rx="10" fill="#7B5EA7"/><text x="201" y="52" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#fff">LLM</text><text x="201" y="66" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#D4C5E9">Outputs JSON</text><text x="201" y="78" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#D4C5E9">tool call</text>
+            <line x1="254" y1="56" x2="284" y2="56" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="286" y="26" width="136" height="60" rx="8" fill="#1A1A1A"/><text x="354" y="46" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#87CEAB">{"tool": "calc",</text><text x="354" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#87CEAB"> "input": {</text><text x="354" y="70" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#87CEAB">  "expr":"84*0.15"</text><text x="354" y="82" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#87CEAB"> }}</text>
+            <line x1="422" y1="56" x2="452" y2="56" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="454" y="34" width="86" height="44" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="497" y="53" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="600" fill="#3B6B8A">System</text><text x="497" y="66" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#3B6B8A">Runs tool</text>
+            <line x1="540" y1="56" x2="570" y2="56" stroke="#aaa" stroke-width="1.2" marker-end="url(#arr)"/>
+            <rect x="572" y="36" width="108" height="40" rx="8" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1.2"/><text x="626" y="54" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#4A7C59">$12.60</text><text x="626" y="68" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#4A7C59">→ back to LLM</text>
+            <path d="M 626 76 L 626 110 L 201 110 L 201 84" stroke="#4A7C59" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+          </svg>
         </div>
-        <div class="concept-group">
-          <div class="concept-group-label label-green">Common Tools</div>
-          <div class="concept-list">
-            <span class="concept-tag green">APIs</span>
-            <span class="concept-tag green">Databases</span>
-            <span class="concept-tag green">Search Engines</span>
-            <span class="concept-tag green">Code Execution</span>
-            <span class="concept-tag green">Calculators</span>
-            <span class="concept-tag green">Browser / Computer Use</span>
-          </div>
-        </div>
+        <div class="concept-group"><div class="concept-group-label label-blue">Concepts</div><div class="concept-list"><span class="concept-tag">Function Calling</span><span class="concept-tag">Tool Selection</span><span class="concept-tag">Structured Output</span><span class="concept-tag">MCP (Model Context Protocol)</span></div></div>
+        <div class="concept-group"><div class="concept-group-label label-green">Common Tools</div><div class="concept-list"><span class="concept-tag green">APIs</span><span class="concept-tag green">Databases</span><span class="concept-tag green">Search Engines</span><span class="concept-tag green">Code Execution</span><span class="concept-tag green">Browser / Computer Use</span></div></div>
       </div>
     </div>
 
@@ -682,345 +391,121 @@
         <span class="toggle-arrow">▶</span>
         <div class="toggle-heading">
           <h3>Orchestration Frameworks</h3>
-          <div class="motivation"><strong>Problem it solves:</strong> Building RAG pipelines and agents from scratch means wiring up dozens of components manually. Orchestration frameworks provide the plumbing — so you focus on logic, not glue code.</div>
+          <div class="motivation"><strong>Problem it solves:</strong> Building from scratch means wiring dozens of components manually. Frameworks provide the plumbing.</div>
         </div>
       </button>
       <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-green">Frameworks to Know</div>
-          <div class="concept-list">
-            <span class="concept-tag blue">LangChain</span>
-            <span class="concept-tag blue">LangGraph</span>
-            <span class="concept-tag blue">LlamaIndex</span>
-            <span class="concept-tag blue">CrewAI</span>
-            <span class="concept-tag blue">Haystack</span>
-            <span class="concept-tag blue">Semantic Kernel</span>
-          </div>
-        </div>
-        <div class="note-block"><strong>Recommendation:</strong> Start with <strong>LangChain</strong> for RAG, <strong>LangGraph</strong> for agents, <strong>LlamaIndex</strong> for data-heavy RAG. Use <strong>CrewAI</strong> when exploring multi-agent patterns.</div>
+        <div class="concept-group"><div class="concept-group-label label-green">Frameworks to Know</div><div class="concept-list"><span class="concept-tag blue">LangChain</span><span class="concept-tag blue">LangGraph</span><span class="concept-tag blue">LlamaIndex</span><span class="concept-tag blue">CrewAI</span><span class="concept-tag blue">Haystack</span><span class="concept-tag blue">Semantic Kernel</span></div></div>
+        <div class="note-block"><strong>Start with:</strong> <strong>LangChain</strong> for RAG, <strong>LangGraph</strong> for agents, <strong>LlamaIndex</strong> for data-heavy RAG, <strong>CrewAI</strong> for multi-agent.</div>
       </div>
     </div>
-
   </div>
 
-  <!-- ═══════════════════════════════════════ -->
   <!-- PASS 2 -->
-  <!-- ═══════════════════════════════════════ -->
   <div class="pass-section pass-2">
-    <div class="pass-header">
-      <span class="pass-number">PASS 2</span>
-      <h2 class="pass-title">High-Level Building</h2>
-    </div>
-    <p class="pass-goal">Build real working systems. Don't optimize - just make it work end-to-end.</p>
-
-    <div class="project-card">
-      <h4><span class="num">01</span> Simple RAG</h4>
-      <p>Load a PDF → chunk it → embed with OpenAI/Cohere → store in Chroma → build a chatbot that answers questions from the document.</p>
-      <div class="concept-list">
-        <span class="concept-tag green">PDF parsing</span>
-        <span class="concept-tag green">Chunking</span>
-        <span class="concept-tag green">Embeddings</span>
-        <span class="concept-tag green">Vector DB</span>
-        <span class="concept-tag green">Prompt template</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h4><span class="num">02</span> Conversational RAG</h4>
-      <p>Extend project 1. Add chat memory so follow-up questions work. Handle "what did I ask earlier?" and contextual references.</p>
-      <div class="concept-list">
-        <span class="concept-tag green">Chat history</span>
-        <span class="concept-tag green">Session memory</span>
-        <span class="concept-tag green">Context window management</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h4><span class="num">03</span> Multi-Source RAG</h4>
-      <p>Query across multiple sources: a vector DB, a SQL database, a web search API. Route the query to the right source.</p>
-      <div class="concept-list">
-        <span class="concept-tag green">Query routing</span>
-        <span class="concept-tag green">SQL + Vector hybrid</span>
-        <span class="concept-tag green">Source selection</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h4><span class="num">04</span> Agent with Tools</h4>
-      <p>Build an LLM agent that can: search the web, run Python code, call APIs, and retrieve from your vector store. Watch it reason through multi-step tasks.</p>
-      <div class="concept-list">
-        <span class="concept-tag green">ReAct loop</span>
-        <span class="concept-tag green">Tool binding</span>
-        <span class="concept-tag green">Function calling</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h4><span class="num">05</span> Agentic RAG</h4>
-      <p>The agent decides when to retrieve, which tool to use, whether the retrieved context is good enough, and when to re-query. This is where RAG and agents merge.</p>
-      <div class="concept-list">
-        <span class="concept-tag green">Retrieval decisions</span>
-        <span class="concept-tag green">Self-critique</span>
-        <span class="concept-tag green">Adaptive retrieval</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <h4><span class="num">06</span> Multi-Agent System</h4>
-      <p>Build a research assistant with: a planner agent, a retriever agent, a summarizer agent, and a verifier agent. Watch them collaborate.</p>
-      <div class="concept-list">
-        <span class="concept-tag green">Agent delegation</span>
-        <span class="concept-tag green">Message passing</span>
-        <span class="concept-tag green">Supervisor pattern</span>
-      </div>
-    </div>
+    <div class="pass-header"><span class="pass-number">PASS 2</span><h2 class="pass-title">High-Level Building</h2></div>
+    <p class="pass-goal">Build real working systems. Don't optimize — just make it work end-to-end.</p>
+    <div class="project-card"><h4><span class="num">01</span> Simple RAG</h4><p>Load a PDF → chunk it → embed with OpenAI/Cohere → store in Chroma → build a chatbot that answers questions from the document.</p><div class="concept-list"><span class="concept-tag green">PDF parsing</span><span class="concept-tag green">Chunking</span><span class="concept-tag green">Embeddings</span><span class="concept-tag green">Vector DB</span><span class="concept-tag green">Prompt template</span></div></div>
+    <div class="project-card"><h4><span class="num">02</span> Conversational RAG</h4><p>Extend project 1. Add chat memory so follow-up questions work. Handle "what did I ask earlier?" and contextual references.</p><div class="concept-list"><span class="concept-tag green">Chat history</span><span class="concept-tag green">Session memory</span><span class="concept-tag green">Context window management</span></div></div>
+    <div class="project-card"><h4><span class="num">03</span> Multi-Source RAG</h4><p>Query across multiple sources: a vector DB, a SQL database, a web search API. Route the query to the right source.</p><div class="concept-list"><span class="concept-tag green">Query routing</span><span class="concept-tag green">SQL + Vector hybrid</span><span class="concept-tag green">Source selection</span></div></div>
+    <div class="project-card"><h4><span class="num">04</span> Agent with Tools</h4><p>Build an LLM agent that can: search the web, run Python code, call APIs, and retrieve from your vector store. Watch it reason through multi-step tasks.</p><div class="concept-list"><span class="concept-tag green">ReAct loop</span><span class="concept-tag green">Tool binding</span><span class="concept-tag green">Function calling</span></div></div>
+    <div class="project-card"><h4><span class="num">05</span> Agentic RAG</h4><p>The agent decides when to retrieve, which tool to use, whether the retrieved context is good enough, and when to re-query. This is where RAG and agents merge.</p><div class="concept-list"><span class="concept-tag green">Retrieval decisions</span><span class="concept-tag green">Self-critique</span><span class="concept-tag green">Adaptive retrieval</span></div></div>
+    <div class="project-card"><h4><span class="num">06</span> Multi-Agent System</h4><p>Build a research assistant with: a planner agent, a retriever agent, a summarizer agent, and a verifier agent. Watch them collaborate.</p><div class="concept-list"><span class="concept-tag green">Agent delegation</span><span class="concept-tag green">Message passing</span><span class="concept-tag green">Supervisor pattern</span></div></div>
   </div>
 
-  <!-- ═══════════════════════════════════════ -->
   <!-- PASS 3 -->
-  <!-- ═══════════════════════════════════════ -->
   <div class="pass-section pass-3">
-    <div class="pass-header">
-      <span class="pass-number">PASS 3</span>
-      <h2 class="pass-title">Deep Systems Knowledge</h2>
-    </div>
+    <div class="pass-header"><span class="pass-number">PASS 3</span><h2 class="pass-title">Deep Systems Knowledge</h2></div>
     <p class="pass-goal">Now zoom into each component. Understand internals, tradeoffs, and optimization.</p>
 
-    <div class="toggle-block">
-      <button class="toggle-trigger" onclick="toggleBlock(this)">
-        <span class="toggle-arrow">▶</span>
-        <div class="toggle-heading">
-          <h3>Embedding Models - Deep Dive</h3>
-          <div class="motivation">Embeddings are the foundation of all retrieval. Different models produce very different quality. Understanding this deeply changes your system performance more than any other single factor.</div>
-        </div>
-      </button>
+    <div class="toggle-block"><button class="toggle-trigger" onclick="toggleBlock(this)"><span class="toggle-arrow">▶</span><div class="toggle-heading"><h3>Embedding Models — Deep Dive</h3><div class="motivation">Embeddings are the foundation of all retrieval. Different models produce very different quality. Understanding this deeply changes your system performance more than any other single factor.</div></div></button>
       <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Core Topics</div>
-          <div class="concept-list">
-            <span class="concept-tag">Embedding dimensions & tradeoffs</span>
-            <span class="concept-tag">Cosine similarity vs Dot product</span>
-            <span class="concept-tag">Bi-encoder vs Cross-encoder</span>
-            <span class="concept-tag">Clustering</span>
-          </div>
-        </div>
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Models to Know</div>
-          <div class="concept-list">
-            <span class="concept-tag purple">OpenAI Embeddings</span>
-            <span class="concept-tag purple">Cohere Embed</span>
-            <span class="concept-tag purple">BGE / E5 / GTE</span>
-            <span class="concept-tag purple">Jina Embeddings</span>
-            <span class="concept-tag purple">ColBERT (late interaction)</span>
-          </div>
-        </div>
+        <div class="concept-group"><div class="concept-group-label label-purple">Core Topics</div><div class="concept-list"><span class="concept-tag">Embedding dimensions & tradeoffs</span><span class="concept-tag">Cosine similarity vs Dot product</span><span class="concept-tag">Bi-encoder vs Cross-encoder</span><span class="concept-tag">Clustering</span></div></div>
+        <div class="concept-group"><div class="concept-group-label label-purple">Models to Know</div><div class="concept-list"><span class="concept-tag purple">OpenAI Embeddings</span><span class="concept-tag purple">Cohere Embed</span><span class="concept-tag purple">BGE / E5 / GTE</span><span class="concept-tag purple">Jina Embeddings</span><span class="concept-tag purple">ColBERT (late interaction)</span></div></div>
       </div>
     </div>
 
-    <div class="toggle-block">
-      <button class="toggle-trigger" onclick="toggleBlock(this)">
-        <span class="toggle-arrow">▶</span>
-        <div class="toggle-heading">
-          <h3>Retrieval Systems - Deep Dive</h3>
-          <div class="motivation">Retrieval quality is the bottleneck. If you retrieve the wrong chunks, even the best LLM will generate wrong answers.</div>
-        </div>
-      </button>
+    <div class="toggle-block"><button class="toggle-trigger" onclick="toggleBlock(this)"><span class="toggle-arrow">▶</span><div class="toggle-heading"><h3>Retrieval Systems — Deep Dive</h3><div class="motivation">Retrieval quality is the bottleneck. If you retrieve the wrong chunks, even the best LLM will generate wrong answers.</div></div></button>
       <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Retrieval Types</div>
-          <div class="concept-list">
-            <span class="concept-tag">Dense Retrieval</span>
-            <span class="concept-tag">Sparse Retrieval (BM25)</span>
-            <span class="concept-tag">Hybrid Retrieval</span>
-            <span class="concept-tag">Rerankers (cross-encoders)</span>
-          </div>
+        <div class="diagram-wrapper">
+          <div class="diagram-label">Hybrid Retrieval — Dense + Sparse with reranking</div>
+          <svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="150" fill="#FDFCFA"/>
+            <rect x="20" y="50" width="72" height="38" rx="8" fill="#FDF6F0" stroke="#C4703F" stroke-width="1"/><text x="56" y="73" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#C4703F">Query</text>
+            <line x1="92" y1="62" x2="148" y2="32" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="92" y1="76" x2="148" y2="108" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+            <rect x="150" y="10" width="110" height="44" rx="8" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="1.2"/><text x="205" y="29" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#3B6B8A">Dense Retrieval</text><text x="205" y="43" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#6B6B6B">Embedding similarity</text>
+            <rect x="150" y="86" width="110" height="44" rx="8" fill="#FDF6F0" stroke="#C4703F" stroke-width="1.2"/><text x="205" y="105" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#C4703F">Sparse Retrieval</text><text x="205" y="119" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#6B6B6B">BM25 / keyword</text>
+            <line x1="260" y1="32" x2="330" y2="62" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+            <line x1="260" y1="108" x2="330" y2="76" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+            <rect x="332" y="46" width="88" height="48" rx="8" fill="#F5F0FA" stroke="#7B5EA7" stroke-width="1.5"/><text x="376" y="67" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#7B5EA7">Reranker</text><text x="376" y="82" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#7B5EA7">Cross-encoder</text>
+            <line x1="420" y1="70" x2="460" y2="70" stroke="#aaa" stroke-width="1" marker-end="url(#arr)"/>
+            <rect x="462" y="46" width="100" height="48" rx="8" fill="#F0F7F2" stroke="#4A7C59" stroke-width="1.2"/><text x="512" y="67" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#4A7C59">Top-K Results</text><text x="512" y="82" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#4A7C59">Best of both</text>
+          </svg>
         </div>
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Advanced Techniques</div>
-          <div class="concept-list">
-            <span class="concept-tag purple">Query Rewriting</span>
-            <span class="concept-tag purple">Contextual Retrieval</span>
-            <span class="concept-tag purple">Semantic Caching</span>
-            <span class="concept-tag purple">Sentence-window Retrieval</span>
-            <span class="concept-tag purple">Parent-child Retrieval</span>
-          </div>
-        </div>
+        <div class="concept-group"><div class="concept-group-label label-purple">Retrieval Types</div><div class="concept-list"><span class="concept-tag">Dense Retrieval</span><span class="concept-tag">Sparse Retrieval (BM25)</span><span class="concept-tag">Hybrid Retrieval</span><span class="concept-tag">Rerankers (cross-encoders)</span></div></div>
+        <div class="concept-group"><div class="concept-group-label label-purple">Advanced Techniques</div><div class="concept-list"><span class="concept-tag purple">Query Rewriting</span><span class="concept-tag purple">Contextual Retrieval</span><span class="concept-tag purple">Semantic Caching</span><span class="concept-tag purple">Sentence-window Retrieval</span><span class="concept-tag purple">Parent-child Retrieval</span></div></div>
       </div>
     </div>
 
-    <div class="toggle-block">
-      <button class="toggle-trigger" onclick="toggleBlock(this)">
-        <span class="toggle-arrow">▶</span>
-        <div class="toggle-heading">
-          <h3>Vector Indexing - Deep Dive</h3>
-          <div class="motivation">When you have 10 million vectors, you can't brute-force search. These algorithms are why vector DBs can return results in milliseconds.</div>
-        </div>
-      </button>
+    <div class="toggle-block"><button class="toggle-trigger" onclick="toggleBlock(this)"><span class="toggle-arrow">▶</span><div class="toggle-heading"><h3>Vector Indexing — Deep Dive</h3><div class="motivation">When you have 10 million vectors, you can't brute-force search. These algorithms are why vector DBs can return results in milliseconds.</div></div></button>
+      <div class="toggle-content"><div class="concept-group"><div class="concept-group-label label-purple">Algorithms</div><div class="concept-list"><span class="concept-tag">HNSW (Hierarchical Navigable Small World)</span><span class="concept-tag">IVF (Inverted File Index)</span><span class="concept-tag">PQ (Product Quantization)</span><span class="concept-tag">ANN Search tradeoffs</span></div></div></div>
+    </div>
+
+    <div class="toggle-block"><button class="toggle-trigger" onclick="toggleBlock(this)"><span class="toggle-arrow">▶</span><div class="toggle-heading"><h3>Chunking Strategies — Deep Dive</h3><div class="motivation">Chunking is deceptively important. Bad chunks = bad retrieval = bad answers. The way you split documents determines what the LLM sees.</div></div></button>
       <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Algorithms</div>
-          <div class="concept-list">
-            <span class="concept-tag">HNSW (Hierarchical Navigable Small World)</span>
-            <span class="concept-tag">IVF (Inverted File Index)</span>
-            <span class="concept-tag">PQ (Product Quantization)</span>
-            <span class="concept-tag">ANN Search tradeoffs</span>
-          </div>
+        <div class="diagram-wrapper">
+          <div class="diagram-label">Chunking approaches compared</div>
+          <svg viewBox="0 0 700 148" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="148" fill="#FDFCFA"/>
+            <rect x="20" y="10" width="660" height="24" rx="4" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="0.8"/><text x="350" y="27" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="600" fill="#3B6B8A">Original Document</text>
+            <text x="20" y="58" font-family="DM Sans" font-size="9" font-weight="700" fill="#C4703F">Fixed-size</text>
+            <rect x="110" y="46" width="100" height="18" rx="3" fill="#FDF6F0" stroke="#C4703F" stroke-width="0.8"/><rect x="214" y="46" width="100" height="18" rx="3" fill="#FDF6F0" stroke="#C4703F" stroke-width="0.8"/><rect x="318" y="46" width="100" height="18" rx="3" fill="#FDF6F0" stroke="#C4703F" stroke-width="0.8"/><rect x="422" y="46" width="100" height="18" rx="3" fill="#FDF6F0" stroke="#C4703F" stroke-width="0.8"/><rect x="526" y="46" width="100" height="18" rx="3" fill="#FDF6F0" stroke="#C4703F" stroke-width="0.8"/>
+            <text x="350" y="58" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#C4703F">Equal token count, may split mid-sentence</text>
+            <text x="20" y="94" font-family="DM Sans" font-size="9" font-weight="700" fill="#3B6B8A">Semantic</text>
+            <rect x="110" y="82" width="140" height="18" rx="3" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="0.8"/><rect x="256" y="82" width="80" height="18" rx="3" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="0.8"/><rect x="342" y="82" width="180" height="18" rx="3" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="0.8"/><rect x="528" y="82" width="98" height="18" rx="3" fill="#EFF5F9" stroke="#3B6B8A" stroke-width="0.8"/>
+            <text x="350" y="94" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#3B6B8A">Split at meaning boundaries, variable sizes</text>
+            <text x="20" y="132" font-family="DM Sans" font-size="9" font-weight="700" fill="#7B5EA7">Hierarchical</text>
+            <rect x="110" y="118" width="260" height="22" rx="3" fill="#F5F0FA" stroke="#7B5EA7" stroke-width="0.8"/><text x="240" y="133" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#7B5EA7">Summary (parent) → detail chunks (children)</text>
+            <rect x="400" y="118" width="226" height="22" rx="3" fill="#F5F0FA" stroke="#7B5EA7" stroke-width="0.8"/><text x="513" y="133" text-anchor="middle" font-family="DM Sans" font-size="7" fill="#7B5EA7">Summary (parent) → detail chunks (children)</text>
+          </svg>
         </div>
+        <div class="concept-group"><div class="concept-group-label label-purple">Strategies</div><div class="concept-list"><span class="concept-tag">Fixed-size Chunking</span><span class="concept-tag">Semantic Chunking</span><span class="concept-tag">Recursive Chunking</span><span class="concept-tag">Hierarchical Chunking</span><span class="concept-tag">Agentic Chunking</span><span class="concept-tag">Document-aware (tables, headers)</span></div></div>
       </div>
     </div>
 
-    <div class="toggle-block">
-      <button class="toggle-trigger" onclick="toggleBlock(this)">
-        <span class="toggle-arrow">▶</span>
-        <div class="toggle-heading">
-          <h3>Chunking Strategies - Deep Dive</h3>
-          <div class="motivation">Chunking is deceptively important. Bad chunks = bad retrieval = bad answers. The way you split documents determines what the LLM sees.</div>
-        </div>
-      </button>
-      <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Strategies</div>
-          <div class="concept-list">
-            <span class="concept-tag">Fixed-size Chunking</span>
-            <span class="concept-tag">Semantic Chunking</span>
-            <span class="concept-tag">Recursive Chunking</span>
-            <span class="concept-tag">Hierarchical Chunking</span>
-            <span class="concept-tag">Agentic Chunking</span>
-            <span class="concept-tag">Document-aware (tables, headers)</span>
-          </div>
-        </div>
-      </div>
+    <div class="toggle-block"><button class="toggle-trigger" onclick="toggleBlock(this)"><span class="toggle-arrow">▶</span><div class="toggle-heading"><h3>Context Engineering — Deep Dive</h3><div class="motivation">The emerging discipline of carefully crafting what goes into the context window. It's not just "prompt engineering" — it's about memory, retrieval, tool context, and structure all working together.</div></div></button>
+      <div class="toggle-content"><div class="concept-group"><div class="concept-group-label label-purple">Topics</div><div class="concept-list"><span class="concept-tag">Prompt Compression</span><span class="concept-tag">Context Selection & Filtering</span><span class="concept-tag">Retrieval Filtering</span><span class="concept-tag">Reranking for Context</span><span class="concept-tag">System Prompt Design</span></div></div></div>
     </div>
 
-    <div class="toggle-block">
-      <button class="toggle-trigger" onclick="toggleBlock(this)">
-        <span class="toggle-arrow">▶</span>
-        <div class="toggle-heading">
-          <h3>Context Engineering - Deep Dive</h3>
-          <div class="motivation">The emerging discipline of carefully crafting what goes into the context window. It's not just "prompt engineering" — it's about memory, retrieval, tool context, and structure all working together.</div>
-        </div>
-      </button>
-      <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Topics</div>
-          <div class="concept-list">
-            <span class="concept-tag">Prompt Compression</span>
-            <span class="concept-tag">Context Selection & Filtering</span>
-            <span class="concept-tag">Retrieval Filtering</span>
-            <span class="concept-tag">Reranking for Context</span>
-            <span class="concept-tag">System Prompt Design</span>
-          </div>
-        </div>
-      </div>
+    <div class="toggle-block"><button class="toggle-trigger" onclick="toggleBlock(this)"><span class="toggle-arrow">▶</span><div class="toggle-heading"><h3>Agent Planning — Deep Dive</h3><div class="motivation">Planning is what separates a tool-caller from an agent. Understanding planning strategies determines whether your agent can handle complex, multi-step real-world tasks.</div></div></button>
+      <div class="toggle-content"><div class="concept-group"><div class="concept-group-label label-purple">Planning Strategies</div><div class="concept-list"><span class="concept-tag">ReAct (Reason + Act)</span><span class="concept-tag">Plan-and-Execute</span><span class="concept-tag">Tree-of-Thought</span><span class="concept-tag">Graph-of-Thought</span><span class="concept-tag">Reflection & Self-critique</span></div></div></div>
     </div>
 
-    <div class="toggle-block">
-      <button class="toggle-trigger" onclick="toggleBlock(this)">
-        <span class="toggle-arrow">▶</span>
-        <div class="toggle-heading">
-          <h3>Agent Planning - Deep Dive</h3>
-          <div class="motivation">Planning is what separates a tool-caller from an agent. Understanding planning strategies determines whether your agent can handle complex, multi-step real-world tasks.</div>
-        </div>
-      </button>
+    <div class="toggle-block"><button class="toggle-trigger" onclick="toggleBlock(this)"><span class="toggle-arrow">▶</span><div class="toggle-heading"><h3>Evaluation & Production — Deep Dive</h3><div class="motivation">You can't improve what you can't measure. Evaluation is what separates a demo from a production system. This is the most under-invested area in most teams.</div></div></button>
       <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Planning Strategies</div>
-          <div class="concept-list">
-            <span class="concept-tag">ReAct (Reason + Act)</span>
-            <span class="concept-tag">Plan-and-Execute</span>
-            <span class="concept-tag">Tree-of-Thought</span>
-            <span class="concept-tag">Graph-of-Thought</span>
-            <span class="concept-tag">Reflection & Self-critique</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="toggle-block">
-      <button class="toggle-trigger" onclick="toggleBlock(this)">
-        <span class="toggle-arrow">▶</span>
-        <div class="toggle-heading">
-          <h3>Evaluation & Production - Deep Dive</h3>
-          <div class="motivation">You can't improve what you can't measure. Evaluation is what separates a demo from a production system. This is the most under-invested area in most teams.</div>
-        </div>
-      </button>
-      <div class="toggle-content">
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Evaluation Topics</div>
-          <div class="concept-list">
-            <span class="concept-tag">RAG Evaluation (faithfulness, relevance, recall)</span>
-            <span class="concept-tag">Hallucination Detection</span>
-            <span class="concept-tag">LLM-as-Judge</span>
-            <span class="concept-tag">Prompt Evaluation</span>
-            <span class="concept-tag">Retrieval Ablation Studies</span>
-          </div>
-        </div>
-        <div class="concept-group">
-          <div class="concept-group-label label-purple">Tools</div>
-          <div class="concept-list">
-            <span class="concept-tag purple">RAGAS</span>
-            <span class="concept-tag purple">DeepEval</span>
-            <span class="concept-tag purple">TruLens</span>
-          </div>
-        </div>
+        <div class="concept-group"><div class="concept-group-label label-purple">Evaluation Topics</div><div class="concept-list"><span class="concept-tag">RAG Evaluation (faithfulness, relevance, recall)</span><span class="concept-tag">Hallucination Detection</span><span class="concept-tag">LLM-as-Judge</span><span class="concept-tag">Prompt Evaluation</span><span class="concept-tag">Retrieval Ablation Studies</span></div></div>
+        <div class="concept-group"><div class="concept-group-label label-purple">Tools</div><div class="concept-list"><span class="concept-tag purple">RAGAS</span><span class="concept-tag purple">DeepEval</span><span class="concept-tag purple">TruLens</span></div></div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════ -->
-  <!-- LATEST TOPICS -->
-  <!-- ═══════════════════════════════════════ -->
+  <!-- LATEST -->
   <div class="latest-section">
-    <div class="pass-header" style="margin-bottom:24px;">
-      <span class="pass-number" style="background:var(--accent-rose-light);color:var(--accent-rose);">Trending</span>
-      <h2 class="pass-title">Latest Topics</h2>
-    </div>
-
+    <div class="pass-header" style="margin-bottom:24px;"><span class="pass-number" style="background:var(--accent-rose-light);color:var(--accent-rose);">Trending</span><h2 class="pass-title">Latest Topics</h2></div>
     <div class="latest-grid">
-      <div class="latest-card">
-        <span class="year-tag">2024+</span>
-        <h4>Graph RAG</h4>
-        <p>Build knowledge graphs from documents, retrieve over relationships instead of flat vector similarity. Better for complex reasoning.</p>
-      </div>
-      <div class="latest-card">
-        <span class="year-tag">2024+</span>
-        <h4>Agentic RAG</h4>
-        <p>Agents that autonomously decide when to retrieve, what source to query, and whether retrieved context is good enough.</p>
-      </div>
-      <div class="latest-card">
-        <span class="year-tag">2025+</span>
-        <h4>Multi-Modal RAG</h4>
-        <p>RAG over images, audio, video — not just text. ColPali for vision-based document understanding without text extraction.</p>
-      </div>
-      <div class="latest-card">
-        <span class="year-tag">2025+</span>
-        <h4>Context Engineering</h4>
-        <p>The emerging discipline: memory + retrieval + tool context + prompt structure as one unified design problem.</p>
-      </div>
-      <div class="latest-card">
-        <span class="year-tag">2025+</span>
-        <h4>MCP (Model Context Protocol)</h4>
-        <p>Anthropic's open standard for connecting agents to tools and data sources. Becoming the USB-C of agent tool use.</p>
-      </div>
-      <div class="latest-card">
-        <span class="year-tag">2025+</span>
-        <h4>LLM Operating Systems</h4>
-        <p>Agent runtimes, tool ecosystems, AI workflows. LLMs as the kernel of a new kind of software platform.</p>
-      </div>
+      <div class="latest-card"><span class="year-tag">2024+</span><h4>Graph RAG</h4><p>Knowledge graphs from documents. Retrieve over relationships instead of flat vector similarity.</p></div>
+      <div class="latest-card"><span class="year-tag">2024+</span><h4>Agentic RAG</h4><p>Agents autonomously decide when to retrieve, what source to query, and whether context is sufficient.</p></div>
+      <div class="latest-card"><span class="year-tag">2025+</span><h4>Multi-Modal RAG</h4><p>RAG over images, audio, video. ColPali for vision-based document understanding.</p></div>
+      <div class="latest-card"><span class="year-tag">2025+</span><h4>Context Engineering</h4><p>Memory + retrieval + tool context + prompt structure as one unified design problem.</p></div>
+      <div class="latest-card"><span class="year-tag">2025+</span><h4>MCP (Model Context Protocol)</h4><p>Anthropic's open standard for connecting agents to tools. The USB-C of agent tool use.</p></div>
+      <div class="latest-card"><span class="year-tag">2025+</span><h4>LLM Operating Systems</h4><p>Agent runtimes, tool ecosystems, AI workflows. LLMs as the kernel of a new software platform.</p></div>
     </div>
   </div>
-
 </div>
-
 <script>
-  function toggleBlock(btn) {
-    const block = btn.closest('.toggle-block');
-    block.classList.toggle('open');
-  }
-  function toggleSub(btn) {
-    const block = btn.closest('.sub-toggle');
-    block.classList.toggle('open');
-  }
+function toggleBlock(btn){btn.closest('.toggle-block').classList.toggle('open')}
+function toggleSub(btn){btn.closest('.sub-toggle').classList.toggle('open')}
 </script>
 </body>
 </html>
