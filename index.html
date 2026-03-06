@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenAI Applied Stack — Learning Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --surface: #FFFFFF;
+    --text: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --text-muted: #9B9B9B;
+    --border: #E8E8E4;
+    --border-light: #F0F0EC;
+    --accent-warm: #C4703F;
+    --accent-warm-light: #FDF6F0;
+    --accent-blue: #3B6B8A;
+    --accent-blue-light: #EFF5F9;
+    --accent-green: #4A7C59;
+    --accent-green-light: #F0F7F2;
+    --accent-purple: #7B5EA7;
+    --accent-purple-light: #F5F0FA;
+    --accent-rose: #A35D6E;
+    --accent-rose-light: #FAF0F2;
+    --tag-bg: #F3F3EF;
+    --code-bg: #F5F5F1;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+    --radius: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 32px 120px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+    margin-bottom: 16px;
+  }
+
+  .header h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .header h1 em {
+    font-style: italic;
+    color: var(--accent-warm);
+  }
+
+  .header-subtitle {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  /* ── PASS SECTION ── */
+  .pass-section {
+    margin-bottom: 56px;
+  }
+
+  .pass-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+  .pass-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .pass-1 .pass-number { background: var(--accent-blue-light); color: var(--accent-blue); }
+  .pass-2 .pass-number { background: var(--accent-green-light); color: var(--accent-green); }
+  .pass-3 .pass-number { background: var(--accent-purple-light); color: var(--accent-purple); }
+
+  .pass-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 30px;
+    font-weight: 400;
+  }
+
+  .pass-goal {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    padding-left: 2px;
+  }
+
+  /* ── TOGGLE BLOCKS ── */
+  .toggle-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .toggle-block:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .toggle-trigger {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+  }
+
+  .toggle-arrow {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+    transition: transform 0.2s ease;
+    color: var(--text-muted);
+  }
+
+  .toggle-block.open .toggle-arrow {
+    transform: rotate(90deg);
+  }
+
+  .toggle-heading {
+    flex: 1;
+  }
+
+  .toggle-heading h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 2px;
+  }
+
+  .toggle-heading .motivation {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  .toggle-content {
+    display: none;
+    padding: 0 22px 22px 54px;
+  }
+
+  .toggle-block.open .toggle-content {
+    display: block;
+  }
+
+  /* ── CONTENT INSIDE TOGGLES ── */
+  .concept-group {
+    margin-bottom: 20px;
+  }
+
+  .concept-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .concept-group-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .label-blue { color: var(--accent-blue); }
+  .label-green { color: var(--accent-green); }
+  .label-warm { color: var(--accent-warm); }
+  .label-purple { color: var(--accent-purple); }
+  .label-rose { color: var(--accent-rose); }
+
+  .concept-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .concept-tag {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: var(--tag-bg);
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .concept-tag.highlight {
+    background: var(--accent-warm-light);
+    color: var(--accent-warm);
+    font-weight: 600;
+  }
+
+  .concept-tag.blue { background: var(--accent-blue-light); color: var(--accent-blue); }
+  .concept-tag.green { background: var(--accent-green-light); color: var(--accent-green); }
+  .concept-tag.purple { background: var(--accent-purple-light); color: var(--accent-purple); }
+  .concept-tag.rose { background: var(--accent-rose-light); color: var(--accent-rose); }
+
+  .note-block {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 12px 16px;
+    background: var(--code-bg);
+    border-radius: 8px;
+    margin-top: 12px;
+    border-left: 3px solid var(--border);
+  }
+
+  .note-block strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .pipeline-flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 12px 0;
+  }
+
+  .pipeline-step {
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .pipeline-arrow {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* ── SUB-TOGGLE ── */
+  .sub-toggle {
+    margin-bottom: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .sub-toggle-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: var(--code-bg);
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+  }
+
+  .sub-toggle-trigger:hover {
+    background: var(--border-light);
+  }
+
+  .sub-toggle-trigger .toggle-arrow {
+    width: 16px;
+    height: 16px;
+    margin-top: 0;
+  }
+
+  .sub-toggle-trigger span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .sub-toggle-content {
+    display: none;
+    padding: 10px 14px 14px 38px;
+  }
+
+  .sub-toggle.open .sub-toggle-content {
+    display: block;
+  }
+
+  .sub-toggle.open .toggle-arrow {
+    transform: rotate(90deg);
+  }
+
+  /* ── PROJECT CARD ── */
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 12px;
+  }
+
+  .project-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .project-card h4 .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--accent-green-light);
+    color: var(--accent-green);
+  }
+
+  .project-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .project-card .concept-list {
+    margin-top: 8px;
+  }
+
+  /* ── LATEST SECTION ── */
+  .latest-section {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .latest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .latest-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+
+  .latest-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .latest-card p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  .latest-card .year-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: var(--accent-rose-light);
+    color: var(--accent-rose);
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .page { padding: 36px 18px 80px; }
+    .header h1 { font-size: 34px; }
+    .pass-title { font-size: 24px; }
+    .latest-grid { grid-template-columns: 1fr; }
+    .pipeline-flow { gap: 3px; }
+    .pipeline-step { font-size: 11px; padding: 4px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">Learning Map · 2024–2026</div>
+    <h1>The Applied <em>GenAI</em> Stack</h1>
+    <p class="header-subtitle">A structured 3-pass learning path from architecture thinking → working prototypes → production-depth knowledge. Built for someone who already understands transformers and wants to go applied.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PASS 1 -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="pass-section pass-1">
+    <div class="pass-header">
+      <span class="pass-number">PASS 1</span>
+      <h2 class="pass-title">Architecture Thinking</h2>
+    </div>
+    <p class="pass-goal">Understand how modern GenAI systems are structured and why each piece exists.</p>
+
+    <!-- RAG -->
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Retrieval-Augmented Generation (RAG)</h3>
+          <div class="motivation"><strong>Problem it solves:</strong> LLMs hallucinate and have stale knowledge. Fine-tuning is expensive and doesn't scale to fast-changing data. RAG lets the model look things up at query time — like giving it an open-book exam instead of asking it to memorize everything.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+
+        <div class="concept-group">
+          <div class="concept-group-label label-blue">Core Pipeline</div>
+          <div class="pipeline-flow">
+            <span class="pipeline-step">Document Ingestion</span>
+            <span class="pipeline-arrow">→</span>
+            <span class="pipeline-step">Chunking</span>
+            <span class="pipeline-arrow">→</span>
+            <span class="pipeline-step">Embedding</span>
+            <span class="pipeline-arrow">→</span>
+            <span class="pipeline-step">Vector Store</span>
+            <span class="pipeline-arrow">→</span>
+            <span class="pipeline-step">Retrieval</span>
+            <span class="pipeline-arrow">→</span>
+            <span class="pipeline-step">Context Augmentation</span>
+            <span class="pipeline-arrow">→</span>
+            <span class="pipeline-step">Generation</span>
+          </div>
+        </div>
+
+        <!-- Sub-toggle: RAG Types -->
+        <div class="sub-toggle">
+          <button class="sub-toggle-trigger" onclick="toggleSub(this)">
+            <span class="toggle-arrow">▶</span>
+            <span>RAG Architectures — by complexity</span>
+          </button>
+          <div class="sub-toggle-content">
+            <div class="concept-group">
+              <div class="concept-group-label label-blue">Basic</div>
+              <div class="concept-list">
+                <span class="concept-tag">Naive RAG</span>
+                <span class="concept-tag">Conversational RAG</span>
+                <span class="concept-tag">Hybrid RAG (sparse + dense)</span>
+                <span class="concept-tag">Multi-hop RAG</span>
+              </div>
+            </div>
+            <div class="concept-group">
+              <div class="concept-group-label label-warm">Intermediate</div>
+              <div class="concept-list">
+                <span class="concept-tag">Query Rewrite RAG</span>
+                <span class="concept-tag">HyDE (Hypothetical Document Embedding)</span>
+                <span class="concept-tag">Multi-source RAG</span>
+                <span class="concept-tag">Graph RAG</span>
+              </div>
+            </div>
+            <div class="concept-group">
+              <div class="concept-group-label label-rose">Advanced</div>
+              <div class="concept-list">
+                <span class="concept-tag highlight">Corrective RAG (CRAG)</span>
+                <span class="concept-tag highlight">Self-RAG</span>
+                <span class="concept-tag highlight">Adaptive RAG</span>
+                <span class="concept-tag highlight">Agentic RAG</span>
+              </div>
+            </div>
+            <div class="note-block">Advanced architectures add <strong>validation loops</strong>, <strong>multiple retrieval steps</strong>, or <strong>autonomous agent control</strong> to improve reasoning and reduce hallucinations.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Vector Databases -->
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Vector Databases</h3>
+          <div class="motivation"><strong>Problem it solves:</strong> Traditional databases search by exact match (SQL WHERE clauses). But "find documents similar to this question" isn't an exact match problem — it's a meaning problem. Vector DBs let you search by semantic similarity across millions of embeddings in milliseconds.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-blue">Key Concepts</div>
+          <div class="concept-list">
+            <span class="concept-tag">Embeddings</span>
+            <span class="concept-tag">Vector Similarity</span>
+            <span class="concept-tag">Approximate Nearest Neighbor (ANN)</span>
+            <span class="concept-tag">Index Structures</span>
+            <span class="concept-tag">Metadata Filtering</span>
+          </div>
+        </div>
+        <div class="concept-group">
+          <div class="concept-group-label label-green">Important Vector DBs</div>
+          <div class="concept-list">
+            <span class="concept-tag blue">Pinecone</span>
+            <span class="concept-tag blue">Weaviate</span>
+            <span class="concept-tag blue">Qdrant</span>
+            <span class="concept-tag blue">Chroma</span>
+            <span class="concept-tag blue">FAISS</span>
+            <span class="concept-tag blue">Milvus</span>
+            <span class="concept-tag blue">pgvector</span>
+          </div>
+        </div>
+        <div class="note-block"><strong>Key tradeoff to understand:</strong> Managed (Pinecone) vs self-hosted (Qdrant, Milvus). For learning, start with Chroma (simple, local). For production, understand HNSW vs IVF indexing.</div>
+      </div>
+    </div>
+
+    <!-- AI Agents -->
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>AI Agents</h3>
+          <div class="motivation"><strong>Problem it solves:</strong> A single LLM call can answer a question, but it can't book a flight, query a database, then send you a summary email. Agents give LLMs the ability to plan, use tools, and take multi-step actions in the real world.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+
+        <div class="concept-group">
+          <div class="concept-group-label label-blue">Core Formula</div>
+          <div class="pipeline-flow">
+            <span class="pipeline-step">LLM (brain)</span>
+            <span class="pipeline-arrow">+</span>
+            <span class="pipeline-step">Tools (hands)</span>
+            <span class="pipeline-arrow">+</span>
+            <span class="pipeline-step">Planning (strategy)</span>
+            <span class="pipeline-arrow">+</span>
+            <span class="pipeline-step">Memory (context)</span>
+            <span class="pipeline-arrow">=</span>
+            <span class="pipeline-step" style="border-color:var(--accent-warm);color:var(--accent-warm);font-weight:600">Agent</span>
+          </div>
+        </div>
+
+        <div class="sub-toggle">
+          <button class="sub-toggle-trigger" onclick="toggleSub(this)">
+            <span class="toggle-arrow">▶</span>
+            <span>Agent Architectures — by complexity</span>
+          </button>
+          <div class="sub-toggle-content">
+            <div class="concept-group">
+              <div class="concept-group-label label-blue">Basic</div>
+              <div class="concept-list">
+                <span class="concept-tag">Tool-calling Agents</span>
+                <span class="concept-tag">ReAct Agents</span>
+                <span class="concept-tag">Planner-Executor Agents</span>
+              </div>
+            </div>
+            <div class="concept-group">
+              <div class="concept-group-label label-warm">Intermediate</div>
+              <div class="concept-list">
+                <span class="concept-tag">Multi-Agent Systems</span>
+                <span class="concept-tag">Hierarchical Agents</span>
+                <span class="concept-tag">Router Agents</span>
+              </div>
+            </div>
+            <div class="concept-group">
+              <div class="concept-group-label label-rose">Advanced</div>
+              <div class="concept-list">
+                <span class="concept-tag highlight">Agentic Workflows</span>
+                <span class="concept-tag highlight">Autonomous Agents</span>
+                <span class="concept-tag highlight">Self-reflective Agents</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Memory Systems -->
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Memory Systems</h3>
+          <div class="motivation"><strong>Problem it solves:</strong> LLMs are stateless — every call is a blank slate. Without memory, an agent forgets what it did 5 steps ago. Memory systems give agents persistence: remembering past conversations, learned preferences, and accumulated knowledge.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Memory Types</div>
+          <div class="concept-list">
+            <span class="concept-tag">Short-term Memory (conversation buffer)</span>
+            <span class="concept-tag">Long-term Memory (persistent store)</span>
+            <span class="concept-tag">Episodic Memory (past events)</span>
+            <span class="concept-tag">Semantic Memory (facts & knowledge)</span>
+            <span class="concept-tag">Vector Memory</span>
+            <span class="concept-tag">Graph Memory</span>
+          </div>
+        </div>
+        <div class="note-block"><strong>Key insight:</strong> Memory retrieval is itself a RAG problem. The agent embeds past interactions, stores them, and retrieves relevant memories at query time. This is where RAG and agents deeply converge.</div>
+      </div>
+    </div>
+
+    <!-- Tool Use -->
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Tool Use & Function Calling</h3>
+          <div class="motivation"><strong>Problem it solves:</strong> LLMs can generate text but can't do math reliably, can't access live data, can't execute code. Tool use is what turns a chatbot into a capable system that interacts with the real world.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-blue">Concepts</div>
+          <div class="concept-list">
+            <span class="concept-tag">Function Calling</span>
+            <span class="concept-tag">Tool Selection</span>
+            <span class="concept-tag">Structured Output</span>
+            <span class="concept-tag">MCP (Model Context Protocol)</span>
+          </div>
+        </div>
+        <div class="concept-group">
+          <div class="concept-group-label label-green">Common Tools</div>
+          <div class="concept-list">
+            <span class="concept-tag green">APIs</span>
+            <span class="concept-tag green">Databases</span>
+            <span class="concept-tag green">Search Engines</span>
+            <span class="concept-tag green">Code Execution</span>
+            <span class="concept-tag green">Calculators</span>
+            <span class="concept-tag green">Browser / Computer Use</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orchestration -->
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Orchestration Frameworks</h3>
+          <div class="motivation"><strong>Problem it solves:</strong> Building RAG pipelines and agents from scratch means wiring up dozens of components manually. Orchestration frameworks provide the plumbing — so you focus on logic, not glue code.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-green">Frameworks to Know</div>
+          <div class="concept-list">
+            <span class="concept-tag blue">LangChain</span>
+            <span class="concept-tag blue">LangGraph</span>
+            <span class="concept-tag blue">LlamaIndex</span>
+            <span class="concept-tag blue">CrewAI</span>
+            <span class="concept-tag blue">Haystack</span>
+            <span class="concept-tag blue">Semantic Kernel</span>
+          </div>
+        </div>
+        <div class="note-block"><strong>Recommendation:</strong> Start with <strong>LangChain</strong> for RAG, <strong>LangGraph</strong> for agents, <strong>LlamaIndex</strong> for data-heavy RAG. Use <strong>CrewAI</strong> when exploring multi-agent patterns.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PASS 2 -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="pass-section pass-2">
+    <div class="pass-header">
+      <span class="pass-number">PASS 2</span>
+      <h2 class="pass-title">High-Level Building</h2>
+    </div>
+    <p class="pass-goal">Build real working systems. Don't optimize — just make it work end-to-end.</p>
+
+    <div class="project-card">
+      <h4><span class="num">01</span> Simple RAG</h4>
+      <p>Load a PDF → chunk it → embed with OpenAI/Cohere → store in Chroma → build a chatbot that answers questions from the document.</p>
+      <div class="concept-list">
+        <span class="concept-tag green">PDF parsing</span>
+        <span class="concept-tag green">Chunking</span>
+        <span class="concept-tag green">Embeddings</span>
+        <span class="concept-tag green">Vector DB</span>
+        <span class="concept-tag green">Prompt template</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h4><span class="num">02</span> Conversational RAG</h4>
+      <p>Extend project 1. Add chat memory so follow-up questions work. Handle "what did I ask earlier?" and contextual references.</p>
+      <div class="concept-list">
+        <span class="concept-tag green">Chat history</span>
+        <span class="concept-tag green">Session memory</span>
+        <span class="concept-tag green">Context window management</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h4><span class="num">03</span> Multi-Source RAG</h4>
+      <p>Query across multiple sources: a vector DB, a SQL database, a web search API. Route the query to the right source.</p>
+      <div class="concept-list">
+        <span class="concept-tag green">Query routing</span>
+        <span class="concept-tag green">SQL + Vector hybrid</span>
+        <span class="concept-tag green">Source selection</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h4><span class="num">04</span> Agent with Tools</h4>
+      <p>Build an LLM agent that can: search the web, run Python code, call APIs, and retrieve from your vector store. Watch it reason through multi-step tasks.</p>
+      <div class="concept-list">
+        <span class="concept-tag green">ReAct loop</span>
+        <span class="concept-tag green">Tool binding</span>
+        <span class="concept-tag green">Function calling</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h4><span class="num">05</span> Agentic RAG</h4>
+      <p>The agent decides when to retrieve, which tool to use, whether the retrieved context is good enough, and when to re-query. This is where RAG and agents merge.</p>
+      <div class="concept-list">
+        <span class="concept-tag green">Retrieval decisions</span>
+        <span class="concept-tag green">Self-critique</span>
+        <span class="concept-tag green">Adaptive retrieval</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h4><span class="num">06</span> Multi-Agent System</h4>
+      <p>Build a research assistant with: a planner agent, a retriever agent, a summarizer agent, and a verifier agent. Watch them collaborate.</p>
+      <div class="concept-list">
+        <span class="concept-tag green">Agent delegation</span>
+        <span class="concept-tag green">Message passing</span>
+        <span class="concept-tag green">Supervisor pattern</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PASS 3 -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="pass-section pass-3">
+    <div class="pass-header">
+      <span class="pass-number">PASS 3</span>
+      <h2 class="pass-title">Deep Systems Knowledge</h2>
+    </div>
+    <p class="pass-goal">Now zoom into each component. Understand internals, tradeoffs, and optimization.</p>
+
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Embedding Models — Deep Dive</h3>
+          <div class="motivation">Embeddings are the foundation of all retrieval. Different models produce very different quality. Understanding this deeply changes your system performance more than any other single factor.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Core Topics</div>
+          <div class="concept-list">
+            <span class="concept-tag">Embedding dimensions & tradeoffs</span>
+            <span class="concept-tag">Cosine similarity vs Dot product</span>
+            <span class="concept-tag">Bi-encoder vs Cross-encoder</span>
+            <span class="concept-tag">Clustering</span>
+          </div>
+        </div>
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Models to Know</div>
+          <div class="concept-list">
+            <span class="concept-tag purple">OpenAI Embeddings</span>
+            <span class="concept-tag purple">Cohere Embed</span>
+            <span class="concept-tag purple">BGE / E5 / GTE</span>
+            <span class="concept-tag purple">Jina Embeddings</span>
+            <span class="concept-tag purple">ColBERT (late interaction)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Retrieval Systems — Deep Dive</h3>
+          <div class="motivation">Retrieval quality is the bottleneck. If you retrieve the wrong chunks, even the best LLM will generate wrong answers.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Retrieval Types</div>
+          <div class="concept-list">
+            <span class="concept-tag">Dense Retrieval</span>
+            <span class="concept-tag">Sparse Retrieval (BM25)</span>
+            <span class="concept-tag">Hybrid Retrieval</span>
+            <span class="concept-tag">Rerankers (cross-encoders)</span>
+          </div>
+        </div>
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Advanced Techniques</div>
+          <div class="concept-list">
+            <span class="concept-tag purple">Query Rewriting</span>
+            <span class="concept-tag purple">Contextual Retrieval</span>
+            <span class="concept-tag purple">Semantic Caching</span>
+            <span class="concept-tag purple">Sentence-window Retrieval</span>
+            <span class="concept-tag purple">Parent-child Retrieval</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Vector Indexing — Deep Dive</h3>
+          <div class="motivation">When you have 10 million vectors, you can't brute-force search. These algorithms are why vector DBs can return results in milliseconds.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Algorithms</div>
+          <div class="concept-list">
+            <span class="concept-tag">HNSW (Hierarchical Navigable Small World)</span>
+            <span class="concept-tag">IVF (Inverted File Index)</span>
+            <span class="concept-tag">PQ (Product Quantization)</span>
+            <span class="concept-tag">ANN Search tradeoffs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Chunking Strategies — Deep Dive</h3>
+          <div class="motivation">Chunking is deceptively important. Bad chunks = bad retrieval = bad answers. The way you split documents determines what the LLM sees.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Strategies</div>
+          <div class="concept-list">
+            <span class="concept-tag">Fixed-size Chunking</span>
+            <span class="concept-tag">Semantic Chunking</span>
+            <span class="concept-tag">Recursive Chunking</span>
+            <span class="concept-tag">Hierarchical Chunking</span>
+            <span class="concept-tag">Agentic Chunking</span>
+            <span class="concept-tag">Document-aware (tables, headers)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Context Engineering — Deep Dive</h3>
+          <div class="motivation">The emerging discipline of carefully crafting what goes into the context window. It's not just "prompt engineering" — it's about memory, retrieval, tool context, and structure all working together.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Topics</div>
+          <div class="concept-list">
+            <span class="concept-tag">Prompt Compression</span>
+            <span class="concept-tag">Context Selection & Filtering</span>
+            <span class="concept-tag">Retrieval Filtering</span>
+            <span class="concept-tag">Reranking for Context</span>
+            <span class="concept-tag">System Prompt Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Agent Planning — Deep Dive</h3>
+          <div class="motivation">Planning is what separates a tool-caller from an agent. Understanding planning strategies determines whether your agent can handle complex, multi-step real-world tasks.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Planning Strategies</div>
+          <div class="concept-list">
+            <span class="concept-tag">ReAct (Reason + Act)</span>
+            <span class="concept-tag">Plan-and-Execute</span>
+            <span class="concept-tag">Tree-of-Thought</span>
+            <span class="concept-tag">Graph-of-Thought</span>
+            <span class="concept-tag">Reflection & Self-critique</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toggle-block">
+      <button class="toggle-trigger" onclick="toggleBlock(this)">
+        <span class="toggle-arrow">▶</span>
+        <div class="toggle-heading">
+          <h3>Evaluation & Production — Deep Dive</h3>
+          <div class="motivation">You can't improve what you can't measure. Evaluation is what separates a demo from a production system. This is the most under-invested area in most teams.</div>
+        </div>
+      </button>
+      <div class="toggle-content">
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Evaluation Topics</div>
+          <div class="concept-list">
+            <span class="concept-tag">RAG Evaluation (faithfulness, relevance, recall)</span>
+            <span class="concept-tag">Hallucination Detection</span>
+            <span class="concept-tag">LLM-as-Judge</span>
+            <span class="concept-tag">Prompt Evaluation</span>
+            <span class="concept-tag">Retrieval Ablation Studies</span>
+          </div>
+        </div>
+        <div class="concept-group">
+          <div class="concept-group-label label-purple">Tools</div>
+          <div class="concept-list">
+            <span class="concept-tag purple">RAGAS</span>
+            <span class="concept-tag purple">DeepEval</span>
+            <span class="concept-tag purple">TruLens</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- LATEST TOPICS -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="latest-section">
+    <div class="pass-header" style="margin-bottom:24px;">
+      <span class="pass-number" style="background:var(--accent-rose-light);color:var(--accent-rose);">HOT</span>
+      <h2 class="pass-title">Cutting-Edge Topics (2024–2026)</h2>
+    </div>
+
+    <div class="latest-grid">
+      <div class="latest-card">
+        <span class="year-tag">2024+</span>
+        <h4>Graph RAG</h4>
+        <p>Build knowledge graphs from documents, retrieve over relationships instead of flat vector similarity. Better for complex reasoning.</p>
+      </div>
+      <div class="latest-card">
+        <span class="year-tag">2024+</span>
+        <h4>Agentic RAG</h4>
+        <p>Agents that autonomously decide when to retrieve, what source to query, and whether retrieved context is good enough.</p>
+      </div>
+      <div class="latest-card">
+        <span class="year-tag">2025+</span>
+        <h4>Multi-Modal RAG</h4>
+        <p>RAG over images, audio, video — not just text. ColPali for vision-based document understanding without text extraction.</p>
+      </div>
+      <div class="latest-card">
+        <span class="year-tag">2025+</span>
+        <h4>Context Engineering</h4>
+        <p>The emerging discipline: memory + retrieval + tool context + prompt structure as one unified design problem.</p>
+      </div>
+      <div class="latest-card">
+        <span class="year-tag">2025+</span>
+        <h4>MCP (Model Context Protocol)</h4>
+        <p>Anthropic's open standard for connecting agents to tools and data sources. Becoming the USB-C of agent tool use.</p>
+      </div>
+      <div class="latest-card">
+        <span class="year-tag">2025+</span>
+        <h4>LLM Operating Systems</h4>
+        <p>Agent runtimes, tool ecosystems, AI workflows. LLMs as the kernel of a new kind of software platform.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggleBlock(btn) {
+    const block = btn.closest('.toggle-block');
+    block.classList.toggle('open');
+  }
+  function toggleSub(btn) {
+    const block = btn.closest('.sub-toggle');
+    block.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
